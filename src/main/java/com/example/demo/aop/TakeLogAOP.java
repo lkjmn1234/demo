@@ -30,12 +30,14 @@ public class TakeLogAOP {
         logger.warn("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         logger.warn("ARGS : " + Arrays.toString(joinPoint.getArgs()));
     }
+
     @After("logAOP()")
     public void doAfter(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        logger.warn("After: haha");
+        logger.warn("AFTER FUNCTION CALL");
     }
+
     @AfterReturning(returning = "ret", pointcut = "logAOP()")
     public void doAfterReturning(Object ret) {
         logger.warn("RESPONSE : " + ret);
