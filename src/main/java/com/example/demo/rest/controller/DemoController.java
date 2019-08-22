@@ -19,7 +19,7 @@ public class DemoController {
     DemoService demoService;
     private static final Logger LOGGER = LogManager.getLogger(DemoController.class);
 
-    @GetMapping("/")
+    @GetMapping("/test")
     public String index() {
         return "Greetings from Spring Boot!";
     }

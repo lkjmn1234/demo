@@ -34,8 +34,7 @@ public class TakeLogAOP {
     @After("logAOP()")
     public void doAfter(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
-        logger.warn("AFTER FUNCTION CALL");
+        logger.warn("AFTER FUNCTION CALL " + joinPoint.getSignature().getName());
     }
 
     @AfterReturning(returning = "ret", pointcut = "logAOP()")
