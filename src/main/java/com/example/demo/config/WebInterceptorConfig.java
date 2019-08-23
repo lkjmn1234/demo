@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @Configuration
 @ComponentScan({"com.example.demo.aop", "com.example.demo.filter",
     "com.example.demo.interceptor.*"})
-public class InterceptorConfig extends WebMvcConfigurationSupport {
+public class WebInterceptorConfig extends WebMvcConfigurationSupport {
 
   @Inject
   DemoInterceptor demoInterceptor;
