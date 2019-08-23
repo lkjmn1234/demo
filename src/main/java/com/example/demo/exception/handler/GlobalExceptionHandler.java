@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler()
-    @ResponseBody
-    String handleException(DemoException e) {
-        return "You got runtime exception";
-    }
+
+  @ExceptionHandler()
+  @ResponseBody
+  String handleException(DemoException e) {
+    return "You got runtime exception";
+  }
 }
