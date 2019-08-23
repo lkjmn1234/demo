@@ -20,12 +20,12 @@ public class RequestTimeFilter extends OncePerRequestFilter {
   protected void doFilterInternal(HttpServletRequest httpServletRequest,
       HttpServletResponse httpServletResponse, FilterChain filterChain)
       throws ServletException, IOException {
-    long time = System.currentTimeMillis();
+    var time = System.currentTimeMillis();
     try {
       filterChain.doFilter(httpServletRequest, httpServletResponse);
     } finally {
-      time = System.currentTimeMillis() - time;
-      logger.info("{}: {} ms ", httpServletRequest.getRequestURI(), time);
+      logger.info("{}: {} ms ", httpServletRequest.getRequestURI(),
+          System.currentTimeMillis() - time);
     }
   }
 }
