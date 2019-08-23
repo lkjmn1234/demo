@@ -6,15 +6,6 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="org.springframework.jdbc.core" level="debug" additivity="false">
-            <AppenderRef ref="LogToConsole"/>
-        </Logger>
-        <Logger name="org.springframework" level="warn" additivity="false">
-            <AppenderRef ref="LogToConsole"/>
-        </Logger>
-        <Logger name="org.hibernate.validator" level="warn" additivity="false">
-            <AppenderRef ref="LogToConsole"/>
-        </Logger>
         <root level="all">
             <appender-ref ref="LogToConsole"/>
         </root>

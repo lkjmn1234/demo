@@ -6,6 +6,7 @@ import com.example.demo.feign.DemoClient;
 import com.example.demo.service.DemoService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -47,5 +48,12 @@ public class DemoController {
     @GetMapping("/demo/jdbc")
     public Iterable<Demo> index6() {
         return demoService.demoService2();
+    }
+
+
+    @PreAuthorize("hasRole('SuperAdmin')")
+    @GetMapping("/demo/role")
+    public String index7() {
+        return "Role Demo";
     }
 }

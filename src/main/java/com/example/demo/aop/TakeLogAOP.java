@@ -10,6 +10,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 @Aspect
 @Component
@@ -24,11 +25,7 @@ public class TakeLogAOP {
     public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        logger.warn("URL : " + request.getRequestURL().toString());
-        logger.warn("HTTP_METHOD : " + request.getMethod());
-        logger.warn("IP : " + request.getRemoteAddr());
-        logger.warn("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        logger.warn("ARGS : " + Arrays.toString(joinPoint.getArgs()));
+        logger.warn("GET IN FUNCTION CALL: " + joinPoint.getSignature().getName());
     }
 
     @After("logAOP()")
@@ -39,6 +36,6 @@ public class TakeLogAOP {
 
     @AfterReturning(returning = "ret", pointcut = "logAOP()")
     public void doAfterReturning(Object ret) {
-        logger.warn("RESPONSE : " + ret);
+        logger.warn("RETURNING OBJECT : " + ret);
     }
 }
