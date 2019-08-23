@@ -28,18 +28,18 @@ public class TakeLogAOP {
     ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder
         .getRequestAttributes();
     HttpServletRequest request = attributes.getRequest();
-    logger.warn("GET IN FUNCTION CALL: " + joinPoint.getSignature().getName());
+    logger.warn("GET IN FUNCTION CALL: {}", joinPoint.getSignature().getName());
   }
 
   @After("logAOP()")
   public void doAfter(JoinPoint joinPoint) {
     ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder
         .getRequestAttributes();
-    logger.warn("AFTER FUNCTION CALL " + joinPoint.getSignature().getName());
+    logger.warn("AFTER FUNCTION CALL {}", joinPoint.getSignature().getName());
   }
 
   @AfterReturning(returning = "ret", pointcut = "logAOP()")
   public void doAfterReturning(Object ret) {
-    logger.warn("RETURNING OBJECT : " + ret);
+    logger.warn("RETURNING OBJECT : {}", ret);
   }
 }
