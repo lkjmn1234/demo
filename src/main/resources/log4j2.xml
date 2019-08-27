@@ -9,10 +9,10 @@
     <Logger name="org.springframework.jdbc.core" level="debug" additivity="false">
       <AppenderRef ref="LogToConsole"/>
     </Logger>
-    <Logger name="org.springframework" level="warn" additivity="false">
+    <Logger name="org.springframework" level="debug" additivity="false">
       <AppenderRef ref="LogToConsole"/>
     </Logger>
-    <Logger name="org.hibernate.validator" level="warn" additivity="false">
+    <Logger name="org.hibernate.validator" level="debug" additivity="false">
       <AppenderRef ref="LogToConsole"/>
     </Logger>
     <Logger name="org.springframework.security.web" level="debug" additivity="false">
