@@ -25,11 +25,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .httpBasic();
 
 
-
-
-
-
-
   }
 
   @Override
